@@ -1,8 +1,11 @@
 const mongoose = require('mongoose')
 
 async function main(){
-    await mongoose.connect('mongodb://localhost:27017/getapet')
-    console.log("Conectou ao Mongoose")
+    await mongoose.connect('mongodb+srv://brunoaraujop9:tAbE5u5XXvsAeUjX@cluster0.iiwxnqp.mongodb.net/').then((response) => {
+        console.log("Conectou ao Mongoose")
+    }).catch((err) => {
+        console.log(err)
+    })
 }
 
 main().catch((err) => console.log(err))
