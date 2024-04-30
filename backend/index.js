@@ -6,8 +6,10 @@ const app = express()
 // config JSON response
 app.use(express.json())
 
+
+
 // solve CORS
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
+// app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
 
 // Public folder for images
 app.use(express.static('public'))
@@ -21,4 +23,5 @@ const PetRoutes = require('./routes/PetRoutes')
 app.use('/users', UserRoutes)
 app.use('/pets', PetRoutes)
 
-app.listen(5000)
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server running on port: ${port}`));
